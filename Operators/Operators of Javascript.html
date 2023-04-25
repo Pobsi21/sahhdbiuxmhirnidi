@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JavaScript Operator summary">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">	
+    
+    <title>Operators of Javascript | JAVSJAVS.com</title>
+</head>
+<body>
+	    <header>
+            <!-- Top Navigation Menu -->
+                <div class="topnav">
+                    <a href="../index.html">Home</a>
+                    <a href="../contact.html/contact.html">Contact</a>
+                   <a href="../about.html/about.html">About</a>
+                    
+                </div>					   
+        </header>
+	<main>
+	    <h1>JavaScript language</h1>
+<h2>Operators</h2>
+<p>JavaScript's numeric operators include +, -, *, /, % (remainder), and ** (exponentiation). Values are assigned using =. Each binary operator also has a compound assignment counterpart such as += and -=, which extend out to x = x operator y.</p>
+
+<p><strong>x += 5;<br>
+x = x + 5;</strong></p>
+
+<p>You can use ++ and -- to increment and decrement respectively. These can be used as a prefix or postfix operators.</p>
+
+<p>The <strong>+ operator</strong> also does string concatenation:</p>
+
+<p><strong>"hello" + " world"; // "hello world"</strong></p>
+
+<p>If you add a string to a number (or other value) everything is converted into a string first. This might trip you up:</p>
+
+<p><strong>"3" + 4 + 5; // "345"<br>
+3 + 4 + "5"; // "75"</strong></p>
+
+<p>Adding an empty string to something is a useful way of converting it to a string itself.</p>
+
+<p><strong>Comparisons</strong> in JavaScript can be made using <, >, <= and >=, which work for both strings and numbers. For equality, the <strong>double-equals operator</strong> performs type coercion if you give it different types, with sometimes interesting results. On the other hand, the <strong>triple-equals operator></strong> does not attempt type coercion, and is usually preferred.</p>
+
+<p><strong><strong>123 == "123"; // true<br>
+1 == true; // true<br>
+
+123 === "123"; // false<br>
+1 === true; // false</strong></strong></p>
+
+<p>The double-equals and triple-equals also have their inequality counterparts: != and !==.</p>
+
+<p>JavaScript also has <strong>bitwise operators</strong> and <strong>logical operators</strong>. Notably, logical operators don't work with boolean values only — they work by the "truthiness" of the value.</p>
+
+<p><strong>const a = 0 && "Hello"; // 0 because 0 is "falsy"<br>
+const b = "Hello" || "world"; // "Hello" because both "Hello" and "world" are "truthy"<?strong></strong></p>
+
+<p>The && and || operators use short-circuit logic, which means whether they will execute their second operand is dependent on the first. This is useful for checking for null objects before accessing their attributes:</p>
+
+<p><strong>const name = o && o.getName();</strong></p>
+
+<p>Or for caching values (when falsy values are invalid):</p>
+
+<p><strong>const name = cachedName || (cachedName = getName());</strong></p>
+
+<p><strong>Quiz below:</strong></p>
+    <ul>
+		<li><a href="../Operators quiz.html/Operators quiz.html">Operators Quiz 1-5(identification)</a></li>
+	</ul>
+	</main>
+		<footer>
+	    <div class="copyright">
+	     <p align="center">Copyright &copy; 2022 - 2023 JAVSJAVS.com</p>
+	    </div> 
+	</footer>

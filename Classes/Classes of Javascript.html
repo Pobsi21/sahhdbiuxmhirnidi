@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JavaScript Classes summary">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">	
+    
+    <title>Classes of Javascript	| JAVSJAVS.com</title>
+</head>
+<body>
+	    <header>
+            <!-- Top Navigation Menu -->
+                <div class="topnav">
+                    <a href="../index.html">Home</a>
+                    <a href="../contact.html/contact.html">Contact</a>
+                    <a href="../about.html/about.html">About</a>
+                     
+                </div>					   
+        </header>
+	<main>
+	    <h1>JavaScript language</h1>
+<h2>Classes</h2>
+<p>JavaScript offers the <strong>class</strong> syntax that's very similar to languages like Java.</p>
+
+<p><strong>class Person {<br>
+  constructor(name) {<br>
+    this.name = name;<br>
+  }<br>
+  sayHello() {<br>
+    return `Hello, I'm ${this.name}!`;<br>
+  }<br>
+}<br>
+
+const p = new Person("Maria");<br>
+console.log(p.sayHello());</strong></p>
+
+<p>JavaScript classes are just functions that must be instantiated with the <strong>new</strong> operator. Every time a class is instantiated, it returns an object containing the methods and properties that the class specified. Classes don't enforce any code organization — for example, you can have functions returning classes, or you can have multiple classes per file. Here's an example of how ad hoc the creation of a class can be: it's just an expression returned from an arrow function. This pattern is called a <strong>mixin</strong>.</p>
+
+<p><strong>const withAuthentication = (cls) =><br>
+  class extends cls {<br>
+    authenticate() {<br>
+      // …<br>
+    }<br>
+  };<br>
+
+class Admin extends withAuthentication(Person) {<br>
+  // …<br>
+}</strong></p>
+
+<p>Static properties are created by prepending static. Private properties are created by prepending a hash # (not private). The hash is an integral part of the property name. (Think about # as _ in Python.) Unlike most other languages, there's absolutely no way to read a private property outside the class body — not even in derived classes.</p>
+	
+	<p><strong>Quiz below:</strong></p>
+    <ul>
+		<li><a href="../Classes quiz.html/Classes quiz.html">Classes Quiz 1-1(identification)</a></li>
+	</ul>
+	</main>
+	<footer>
+	    <div class="copyright">
+	     <p align="center">Copyright &copy; 2022 - 2023 JAVSJAVS.com</p>
+	    </div> 
+	</footer>
+	

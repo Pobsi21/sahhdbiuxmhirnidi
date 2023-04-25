@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JavaScript Variables summary">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">	
+    
+    <title>Variables of Javascript| JAVSJAVS.com</title>
+</head>
+<body>
+	    <header>
+            <!-- Top Navigation Menu -->
+                <div class="topnav">
+                    <a href="../index.html">Home</a>
+                   <a href="../contact.html/contact.html">Contact</a>
+                    <a href="../about.html/about.html">About</a>
+                    
+                </div>					   
+        </header>
+	<main>
+	    <h1>JavaScript language</h1>
+<h2>Variables</h2>
+<p>Variables in JavaScript are declared using one of three keywords: <strong>let</strong>, <strong>const</strong>, or <strong>var</strong>.</p>
+
+<p>let allows you to declare block-level variables. The declared variable is available from the block it is enclosed in.</p>
+
+<p><strong>let a;<br>
+let name = "Simon";<br>
+
+// myLetVariable is *not* visible out here<br>
+
+for (let myLetVariable = 0; myLetVariable < 5; myLetVariable++) {<br>
+  // myLetVariable is only visible in her<br>
+}<br>
+
+// myLetVariable is *not* visible out here</strong><p><br>
+
+<p><strong>const</strong> allows you to declare variables whose values are never intended to change. The variable is available from the block it is declared in.</p>
+
+<p><strong>const Pi = 3.14; // Declare variable Pi<br>
+console.log(Pi); // 3.14</strong></p>
+
+<p>A variable declared with const cannot be reassigned.</p>
+
+<p><strong>const Pi = 3.14;<br>
+Pi = 1; // will throw an error because you cannot change a constant variable.</strong></p>
+<p>const declarations only prevent reassignments — they don't prevent mutations of the variable's value, if it's an object.</p>
+
+<p><strong>const obj = {};<br>
+obj.a = 1; // no error<br>
+console.log(obj); // { a: 1 }</strong></p>
+
+<p>var declarations can have surprising behaviors (for example, they are not block-scoped), and they are discouraged in modern JavaScript code.</p>
+
+<p>If you declare a variable without assigning any value to it, its value is undefined. You can't declare a const variable without an initializer, because you can't change it later anyway.</p>
+
+<p>let and const declared variables still occupy the entire scope they are defined in, and are in a region known as the <strong>temporal dead zone</strong> before the actual line of declaration. This has some interesting interactions with variable shadowing, which don't occur in other languages.</p>
+
+<p><strong>function foo(x, condition) {<br>
+  if (condition) {<br>
+    console.log(x);<br>
+    const x = 2;<br>
+    console.log(x);<br>
+  }<br>
+}<br>
+
+foo(1, true);</strong></p>
+
+<p>In most other languages, this would log "1" and "2", because before the const x = 2 line, x should still refer to the parameter x in the upper scope. In JavaScript, because each declaration occupies the entire scope, this would throw an error on the first console.log: "Cannot access 'x' before initialization". For more information, see the reference page of <strong>let</strong>.</p>
+
+<p>JavaScript is dynamically typed. Types (as described in </strong>the previous section<?strong>) are only associated with values, but not with variables. For let-declared variables, you can always change its type through reassignment.</p>
+
+<p><strong>let a = 1;<br>
+a = "foo";</strong></p>
+
+<p><strong>Quiz below:</strong></p>
+    <ul>   
+		<li><a href="../Variables quiz.html/Variables quiz.html">Variables Quiz 1-3(identification)</a></li>
+		</ul>
+	</main>
+    	<footer>
+	    <div class="copyright">
+	     <p align="center">Copyright &copy; 2022 - 2023 JAVSJAVS.com</p>
+	    </div> 
+	</footer>

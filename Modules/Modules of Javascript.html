@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JavaScript Modules summary">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">	
+    
+    <title>Modules of Javascript | JAVSJAVS.com</title>
+</head>
+<body>
+	    <header>
+            <!-- Top Navigation Menu -->
+                <div class="topnav">
+                    <a href="../index.html">Home</a>
+                    <a href="../contact.html/contact.html">Contact</a>
+                    <a href="../about.html/about.html">About</a>
+                      
+                </div>					   
+        </header>
+	<main>
+	    <h1>JavaScript language</h1>
+<h2>Modules</h2>
+<p>JavaScript also specifies a module system supported by most runtimes. A module is usually a file, identified by it's file path or URL. You can use the <strong>import</strong> and <strong>export</strong> statements to exchange data between modules:</p>
+
+<p><strong>import { foo } from "./foo.js";<br>
+
+// Unexported variables are local to the module<br>
+const b = 2;<br>
+
+export const a = 1;</strong></p>
+
+<p>Unlike Haskell, Python, Java, etc., JavaScript module resolution is entirely host-defined — it's usually based on URLs or file paths, so relative file paths "just work" and are relative to the current module's path instead of some project root path.</p>
+
+<p>However, the JavaScript language doesn't offer standard library modules — all core functionalities are powered by global variables like <strong>Math</strong> and <strong>Intl</strong> instead. This is due to the long history of JavaScript lacking a module system, and the fact that opting into the module system involves some changes to the runtime setup.</p>
+
+<p>Different runtimes may use different module systems. For example, <strong>Node.js</strong> uses the package manager <strong>npm</strong> and is mostly file-system based, while <strong>Deno</strong> and browsers are fully URL-based and modules can be resolved from HTTP URLs.
+	
+	<p><strong>Quiz below:</strong></p>
+    <ul>
+		<li><a href="../Modules quiz.html/Modules quiz.html">Modules Quiz 1-2(identification)</a></li>
+	</ul>
+	</main>
+	<footer>
+	    <div class="copyright">
+	     <p align="center">Copyright &copy; 2022 - 2023 JAVSJAVS.com</p>
+	    </div> 
+	</footer>

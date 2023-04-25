@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JavaScript Arrays summary">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">	
+    
+    <title>Arrays of Javascript | JAVSJAVS.com</title>
+</head>
+<body>
+	    <header>
+            <!-- Top Navigation Menu -->
+                <div class="topnav">
+                    <a href="../index.html">Home</a>
+                    <a href="../contact.html/contact.html">Contact</a>
+                    <a href="../about.html/about.html">About</a>
+                     
+                </div>					   
+        </header>
+	<main>
+	    <h1>JavaScript language</h1>
+<h2>Arrays</h2>
+<p>Arrays in JavaScript are actually a special type of object. They work very much like regular objects (numerical properties can naturally be accessed only using [] syntax) but they have one magic property called length. This is always one more than the highest index in the array.</p>
+
+<p>Arrays are usually created with array literals:</p>
+
+<p><strong>const a = ["dog", "cat", "hen"];<br>
+a.length; // 3</strong></p>
+
+<p>JavaScript arrays are still objects — you can assign any properties to them, including arbitrary number indices. The only "magic" is that length will be automatically updated when you set a particular index.</p>
+
+<p><strong>const a = ["dog", "cat", "hen"];<br>
+a[100] = "fox";<br>
+console.log(a.length); // 101<br>
+console.log(a); // ['dog', 'cat', 'hen', empty × 97, 'fox']</strong></p>
+
+<p>The array we got above is called a <strong>sparse array</strong> because there are uninhabited slots in the middle, and will cause the engine to deoptimize it from an array to a hash table. Make sure your array is densely populated!</p>
+
+<p>Out-of-bounds indexing doesn't throw. If you query a non-existent array index, you'll get a value of undefined in return:</p>
+
+<p><strong>const a = ["dog", "cat", "hen"];<br>
+console.log(typeof a[90]); // undefined</strong></p>
+
+<p>Arrays can have any elements and can grow or shrink arbitrarily.</p>
+
+<p><strong>const arr = [1, "foo", true];<br>
+arr.push({});<br>
+// arr = [1, "foo", true, {}]</strong></p>
+
+<p>Arrays can be iterated with the for loop, as you can in other C-like languages:</p>
+
+<p><strong>for (let i = 0; i < a.length; i++) {<br>
+  // Do something with a[i]<br>
+}</strong></p>
+
+<p>Or, since arrays are iterable, you can use the <strong>for...of</strong> loop, which is synonymous to C++/Java's for (int x : arr) syntax:</p>
+
+<p><strong>for (const currentValue of a) {<br>
+  // Do something with currentValue<br>
+}</strong></p>
+
+<p>Arrays come with a plethora of <strong>array methods</strong>. Many of them would iterate the array — for example, <strong>map()</strong> would apply a callback to every array element, and return a new array:</p>
+
+<p><strong>const babies = ["dog", "cat", "hen"].map((name) => `baby ${name}`);<br>
+// babies = ['baby dog', 'baby cat', 'baby hen']</strong></p>
+
+<p><strong>Quiz below:</strong></p>
+    <ul>
+		<li><a href="../Arrays quiz.html/Arrays quiz.html">Arrays Quiz 1-2(identification)</a></li>
+	</ul>
+	</main>
+	
+	<footer>
+	    <div class="copyright">
+	     <p align="center">Copyright &copy; 2022 - 2023 JAVSJAVS.com</p>
+	    </div> 
+	</footer>

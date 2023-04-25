@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JavaScript Functions summary">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">	
+    
+    <title>Functions of Javascript | JAVSJAVS.com</title>
+</head>
+<body>
+	    <header>
+            <!-- Top Navigation Menu -->
+                <div class="topnav">
+                    <a href="../index.html">Home</a>
+                    <a href="../contact.html/contact.html">Contact</a>
+                    <a href="../about.html/about.html">About</a>
+                     
+                </div>					   
+        </header>
+	<main>
+	    <h1>JavaScript language</h1>
+<h2>Functions</h2>
+<p>Along with objects, functions are the core component in understanding JavaScript. The most basic function declaration looks like this:</p>
+
+<p><strong>function add(x, y) {<br>
+  const total = x + y;<br>
+  return total;<br>
+}</strong></p>
+
+<p>A JavaScript function can take 0 or more parameters. The function body can contain as many statements as you like and can declare its own variables which are local to that function. The <strong>return</strong> statement can be used to return a value at any time, terminating the function. If no return statement is used (or an empty return with no value), JavaScript returns undefined.</p>
+
+<p>Functions can be called with more or fewer parameters than it specifies. If you call a function without passing the parameters it expects, they will be set to undefined. If you pass more parameters than it expects, the function will ignore the extra parameters.</p>
+
+<p><strong>add(); // NaN<br>
+// Equivalent to add(undefined, undefined)<br>
+
+add(2, 3, 4); // 5<br>
+// added the first two; 4 was ignored</strong></p>
+
+<p>There are a number of other parameter syntaxes available. For example, the <strong>rest parameter syntax</strong> allows collecting all the extra parameters passed by the caller into an array, similar to Python's *args. (Since JS doesn't have named parameters on the language level, there's no **kwargs.)
+
+<p><strong>function avg(...args) {<br>
+  let sum = 0;<br>
+  for (const item of args) {<br>
+    sum += item;<br>
+  }<br>
+  return sum / args.length;<br>
+}<br>
+
+avg(2, 3, 4, 5); // 3.5</strong></p>
+
+<p>In the above code, the variable args holds all the values that were passed into the function.</p>
+
+<p>The rest parameter will store all arguments after where it's declared, but not before. In other words, function avg(firstValue, ...args) will store the first value passed into the function in the firstValue variable and the remaining arguments in args.</p>
+
+<p>If a function accepts a list of arguments and you already hold an array, you can use the<strong>spread syntax</strong> in the function call to spread the array as a list of elements. For instance: avg(...numbers).</p>
+
+<p>We mentioned that JavaScript doesn't have named parameters. It's possible, though, to implement them using <strong>object destructuring</strong>, which allows objects to be conveniently packed and unpacked.</p>
+
+<p><strong>// Note the { } braces: this is destructuring an object<br>
+function area({ width, height }) {<br>
+  return width * height;<br>
+}<br>
+
+// The { } braces here create a new object<br>
+console.log(area({ width: 2, height: 3 }));</strong></p>
+
+<p>There's also the <strong>default parameter</strong> syntax, which allows omitted parameters (or those passed as undefined) to have a default value.</p>
+
+<p><strong>function avg(firstValue, secondValue, thirdValue = 0) {<br>
+  return (firstValue + secondValue + thirdValue) / 3;<br>
+}</br>
+
+avg(1, 2); // 1, instead of NaN</strong></p>
+
+<h3>Anonymous functions</h3>
+<p>JavaScript lets you create anonymous functions — that is, functions without names. In practice, anonymous functions are typically used as arguments to other functions, immediately assigned to a variable that can be used to invoke the function, or returned from another function.</p>
+
+<p><strong>// Note that there's no function name before the parentheses<br>
+const avg = function (...args) {<br>
+  let sum = 0;<br>
+  for (const item of args) {<br>
+    sum += item;<br>
+  }<br>
+  return sum / args.length;<br>
+};</strong></p>
+
+<p>That makes the anonymous function invocable by calling avg() with some arguments — that is, it's semantically equivalent to declaring the function using the function avg() {} declaration syntax.</p>
+
+<p>There's another way to define anonymous functions — using an <strong>arrow function expression</strong>.</p>
+
+<p><strong>// Note that there's no function name before the parentheses<br>
+const avg = (...args) => {<br>
+  let sum = 0;<br>
+  for (const item of args) {<br>
+    sum += item;<br>
+  }<br>
+  return sum / args.length;<br>
+};<br>
+
+// You can omit the `return` when simply returning an expression<br>
+const sum = (a, b, c) => a + b + c;</strong></p>
+
+<p>Arrow functions are not semantically equivalent to function expressions.</p>
+
+<p>There's another way that anonymous functions can be useful: it can be simultaneously declared and invoked in a single expression, called an <strong>Immediately invoked function expression (IIFE)</strong>:</p>
+
+<p><strong>(function () {<br>
+  // …<br>
+})();</strong></p>
+
+<h3>Recursive functions</h3>
+<p>JavaScript allows you to call functions recursively. This is particularly useful for dealing with tree structures, such as those found in the browser DOM.</p>
+
+<p><strong>function countChars(elm) {<br>
+  if (elm.nodeType === 3) {<br>
+    // TEXT_NODE<br>
+    return elm.nodeValue.length;<br>
+  }<br>
+  let count = 0;<br>
+  for (let i = 0, child; (child = elm.childNodes[i]); i++) {<br>
+    count += countChars(child);<br>
+  }<br>
+  return count;<br>
+}</strong></p>
+
+<p>Function expressions can be named as well, which allows them to be recursive.</p>	
+
+<p><strong>const charsInBody = (function counter(elm) {<br>
+  if (elm.nodeType === 3) {<br>
+    // TEXT_NODE<br>
+    return elm.nodeValue.length;<br>
+  }<br>
+  let count = 0;<br>
+  for (let i = 0, child; (child = elm.childNodes[i]); i++) {<br>
+    count += counter(child);<br>
+  }<br>
+  return count;<br>
+})(document.body);</strong></p>
+
+<p>The name provided to a function expression as above is only available to the function's own scope. This allows more optimizations to be done by the engine and results in more readable code. The name also shows up in the debugger and some stack traces, which can save you time when debugging.</p>
+
+<p>If you are used to functional programming, beware of the performance implications of recursion in JavaScript. Although the language specification specifies <strong>tail-call optimization</strong>, only JavaScriptCore (used by Safari) has implemented it, due to the difficulty of recovering stack traces and debuggability. For deep recursion, consider using iteration instead to avoid stack overflow.</p>
+
+<h3>Functions are first-class objects</h3>
+<p>JavaScript functions are first-class objects. This means that they can be assigned to variables, passed as arguments to other functions, and returned from other functions. In addition, JavaScript supports <strong>closures</strong> out-of-the-box without explicit capturing, allowing you to conveniently apply functional programming styles.</p>
+
+<p><strong>// Function returning function<br>
+const add = (x) => (y) => x + y;<br>
+// Function accepting function<br>
+const babies = ["dog", "cat", "hen"].map((name) => `baby ${name}`);</strong></p>
+
+<p>Note that JavaScript functions are themselves objects — like everything else in JavaScript — and you can add or change properties on them just like we've seen earlier in the Objects section.</p>
+
+<h3>Inner functions</h3>
+<p>JavaScript function declarations are allowed inside other functions. An important detail of nested functions in JavaScript is that they can access variables in their parent function's scope:</p>
+
+<p><strong>function parentFunc() {<br>
+  const a = 1;<br>
+
+  function nestedFunc() {<br>
+    const b = 4; // parentFunc can't use this<br>
+    return a + b;<br>
+  }<br>
+  return nestedFunc(); // 5<br>
+}</strong></p>
+
+<p>This provides a great deal of utility in writing more maintainable code. If a called function relies on one or two other functions that are not useful to any other part of your code, you can nest those utility functions inside it. This keeps the number of functions that are in the global scope down.</p>
+
+<p>This is also a great counter to the lure of global variables. When writing complex code, it is often tempting to use global variables to share values between multiple functions, which leads to code that is hard to maintain. Nested functions can share variables in their parent, so you can use that mechanism to couple functions together without polluting your global namespace.</p>
+	
+	<p><strong>Quiz below:</strong></p>
+    <ul>
+		<li><a href="../Function Quiz.html/Function Quiz.html">Function Quiz 1-5(identification))</a></li>
+	</ul>
+	</main>
+	<footer>
+	    <div class="copyright">
+	     <p align="center">Copyright &copy; 2022 - 2023 JAVSJAVS.com</p>
+	    </div> 
+	</footer>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JavaScript Data types summary">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">	
+    
+    <title>Data types of Javascript| JAVSJAVS.com</title>
+</head>
+<body>
+	    <header>
+            <!-- Top Navigation Menu -->
+                <div class="topnav">
+                    <a href="../index.html">Home</a>
+                    <a href="../contact.html/contact.html">Contact</a>
+                    <a href="../about.html/about.html">About</a>
+                    
+					   
+                </div>					   
+        </header>
+	<main>
+	<h1>JavaScript language</h1>
+<h2>Data types</h2>
+<p>Let's start off by looking at the building blocks of any language: the types. JavaScript programs manipulate values, and those values all belong to a type. JavaScript offers seven primitive types:<br>
+
+<p><strong>Number:</strong> used for all number values (integer and floating point) except for very big integers.</p>
+<strong>BigInt:</strong> used for arbitrarily large integers.<br>
+<strong>String:</strong> used to store text.<br>
+<strong>Boolean:</strong> true and false — usually used for conditional logic.<br>
+<strong>Symbol:</strong> used for creating unique identifiers that won't collide.<br>
+<strong>Undefined:</strong> indicating that a variable has not been assigned a value.<br>
+<strong>Null:</strong> indicating a deliberate non-value.<p><br>
+<p>Everything else is known as an Object. Common object types include:</p>
+
+<strong>Function</strong><br>
+<strong>Array</strong><br>
+<strong>Date</strong><br>
+<strong>RegExp</strong><br>
+<strong>Error</strong><br>
+<p>Functions aren't special data structures in JavaScript — they are just a special type of object that can be called.</p>
+
+<h3>Numbers</h3>
+<p>JavaScript has two built-in numeric types: Number and BigInt.</p>
+
+<p>The Number type is a <strong>IEEE 754 64-bit double-precision floating point value</strong>, which means integers can be safely represented between <strong>-(253 − 1)</strong> and <strong>253 − 1</strong> without loss of precision, and floating point numbers can be stored all the way up to <strong>1.79 × 10308</strong>. Within numbers, JavaScript does not distinguish between floating point numbers and integers.</p>
+
+<p><strong>console.log(3 / 2); // 1.5, not 1</strong></p><br>
+
+<p>So an apparent integer is in fact implicitly a float. Because of IEEE 754 encoding, sometimes floating point arithmetic can be imprecise.</p>
+
+<p><strong>console.log(0.1 + 0.2); // 0.30000000000000004</strong></p><br>
+
+<p>For operations that expect integers, such as bitwise operations, the number will be converted to a 32-bit integer.</p>
+
+<p><strong>Number literals</strong> can also have prefixes to indicate the base (binary, octal, decimal, or hexadecimal), or an exponent suffix.</p>
+
+<p><strong>console.log(0b111110111); // 503
+console.log(0o767); // 503
+console.log(0x1f7); // 503
+console.log(5.03e2); // 503</strong></p>
+
+<p>The <strong>BigInt</strong> type is an arbitrary length integer. Its behavior is similar to C's integer types (e.g. division truncates to zero), except it can grow indefinitely. BigInts are specified with a number literal and an n suffix.</p>
+
+<p><strong>console.log(-3n / 2n); // -1n</strong></p><br>
+
+<p>The standard <strong>arithmetic operators</strong> are supported, including addition, subtraction, remainder arithmetic, etc. BigInts and numbers cannot be mixed in arithmetic operations.</p>
+
+<p>The <strong>Math</strong> object provides standard mathematical functions and constants.</p>
+
+<p><strong>Math.sin(3.5);<br>
+const circumference = 2 * Math.PI * r;</strong></p>
+
+<p>There are three ways to convert a string to a number:</p>
+
+<p><strong>parseInt()</strong>, which parses the string for an integer.
+<strong>parseFloat()</strong>, which parses the string for a floating-point number.
+The <strong>Number()</strong> function, which parses a string as if it's a number literal and supports many different number representations.</p>
+<p>You can also use the <strong>unary plus +</strong> as a shorthand for Number().<p>
+
+<p>Number values also include <strong>NaN</strong>	 (short for "Not a Number") and <strong>Infinity</strong>. Many "invalid math" operations will return NaN — for example, if attempting to parse a non-numeric string, or using <strong>Math.log()</strong> on a negative value. Division by zero produces Infinity (positive or negative).</p>
+
+<p>NaN is contagious: if you provide it as an operand to any mathematical operation, the result will also be NaN. NaN is the only value in JavaScript that's not equal to itself (per IEEE 754 specification).</p>
+
+<h3>Strings</h3>
+<p>Strings in JavaScript are sequences of Unicode characters. This should be welcome news to anyone who has had to deal with internationalization. More accurately, they are <strong>UTF-16 encoded</strong>.</p>
+
+<p><strong>console.log("Hello, world");<br>
+console.log("你好，世界！"); // Nearly all Unicode characters can be written literally in string literals</strong></p>
+
+<p>Strings can be written with either single or double quotes — JavaScript does not have the distinction between characters and strings. If you want to represent a single character, you just use a string consisting of that single character.</p>
+
+<p><strong>console.log("Hello"[1] === "e"); // true</strong></p>
+
+<p>To find the length of a string (in <strong>code units</strong>), access its <strong>length</strong> property.</p>
+
+<p>Strings have <strong>utility methods</strong>to manipulate the string and access information about the string. Because all primitives are immutable by design, these methods return new strings.</p>
+
+<p>The + operator is overloaded for strings: when one of the operands is a string, it performs string concatenation instead of number addition. A special <strong>template literal</strong> syntax allows you to write strings with embedded expressions more succinctly. Unlike Python's f-strings or C#'s interpolated strings, template literals use backticks (not single or double quotes).</p>
+
+<p><strong>const age = 25;<br>
+console.log("I am " + age + " years old."); // String concatenation<br>
+console.log(`I am ${age} years old.`); // Template literalZ</strong></p>
+
+<h3>Other types</h3>
+<p>JavaScript distinguishes between <strong>null</strong>, which indicates a deliberate non-value (and is only accessible through the null keyword), and <strong>undefined</strong>, which indicates absence of value. There are many ways to obtain undefined:</p>
+
+<p>A <strong>return</strong> statement with no value (return;) implicitly returns undefined.
+Accessing a nonexistent <strong>object</strong> property (obj.iDontExist) returns undefined.
+A variable declaration without initialization (let x;) will implicitly initialize the variable to undefined.</p>
+<p>JavaScript has a Boolean type, with possible values true and false — both of which are keywords. Any value can be converted to a boolean according to the following rules:</p>
+
+<p>1.false, 0, empty strings (""), NaN, null, and undefined all become false.<br>
+2.All other values become true.</p>
+<p>You can perform this conversion explicitly using the Boolean() function:</p>
+
+<p><strong>Boolean(""); // false<br>
+Boolean(234); // true</strong></p>
+<p>However, this is rarely necessary, as JavaScript will silently perform this conversion when it expects a boolean, such as in an if statement (see <strong>Control structures</strong>). For this reason, we sometimes speak of "<strong>truthy</strong>" and "<strong>falsy</strong>", meaning values that become true and false, respectively, when used in boolean contexts.</p>
+
+<p>Boolean operations such as && (logical and), || (logical or), and ! (logical not) are supported; see <strong>Operators</strong>.</p>
+
+<p>The Symbol type is often used to create unique identifiers. Every symbol created with the <strong>Symbol()</strong> function is guaranteed to be unique. In addition, there are registered symbols, which are shared constants, and well-known symbols, which are utilized by the language as "protocols" for certain operations.</p>
+
+<p><strong>Quiz below:</strong></p>
+    <ul>
+	    <li><a href="../Data types Quiz.html/Data types Quiz.html">Data Type Quiz 1-5(with choices)</a></li>
+	</ul>
+	</main>
+	<footer>
+	    <div class="copyright">
+	     <p align="center">Copyright &copy; 2022 - 2023 JAVSJAVS.com</p>
+	    </div> 
+	</footer>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JavaScript Asynchronous programming summary">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">	
+    
+    <title>Asynchronous of Javascript | JAVSJAVS.com</title>
+</head>
+<body>
+	    <header>
+            <!-- Top Navigation Menu -->
+                <div class="topnav">
+                    <a href="../index.html">Home</a>
+                    <a href="../contact.html/contact.html">Contact</a>
+                   <a href="../about.html/about.html">About</a>
+                   
+                </div>					   
+        </header>
+	<main>
+	    <h1>JavaScript language</h1>
+<h2>Asynchronous programming</h2>
+<p>JavaScript is single-threaded by nature. There's no <strong>paralleling</strong>; only <strong>concurrency</strong>. Asynchronous programming is powered by an <strong>event loop</strong>, which allows a set of tasks to be queued and polled for completion.</p>
+
+<p>There are three idiomatic ways to write asynchronous code in JavaScript:</p>
+
+<p>*Callback-based (such as <strong>setTimeout</strong>())<br>
+*<strong>Promise</strong>-based<br>
+*<strong>async</strong>/<strong>await</strong>, which is a syntactic sugar for Promises</p>
+
+</p>For example, here's how a file-read operation may look like in JavaScript:</p>
+<p><strong>// Callback-based<br>
+fs.readFile(filename, (err, content) => {<br>
+  // This callback is invoked when the file is read, which could be after a while<br>
+  if (err) {<br>
+    throw err;<br>
+  }<br>
+  console.log(content);<br>
+});<br>
+// Code here will be executed while the file is waiting to be read<br>
+
+// Promise-based<br>
+fs.readFile(filename)<>br
+  .then((content) => {<br>
+    // What to do when the file is read<br>
+    console.log(content);<br>
+  })<br>
+  .catch((err) => {<br>
+    throw err;<br>
+  });<br>
+// Code here will be executed while the file is waiting to be read<br>
+
+// Async/await<br>
+async function readFile(filename) {<br>
+  const content = await fs.readFile(filename);<br>
+  console.log(content);<br>
+}</strong></p>
+
+<p>The core language doesn't specify any asynchronous programming features, but it's crucial when interacting with the external environment — from <strong>asking user permissions</strong>, to <strong>fetching data</strong>, to <strong>reading files</strong>. Keeping the potentially long-running operations async ensures that other processes can still run while this one waits — for example, the browser will not freeze while waiting for the user to click a button to grant permission.</p>
+
+<p>If you have an async value, it's not possible to get its value synchronously. For example, if you have a promise, you can only access the eventual result via the <strong>then()</strong> method. Similarly, await can only be used in an async context, which is usually an async function or a module. Promises are never blocking — only the logic depending on the promise's result will be deferred; everything else continues to execute in the meantime. If you are a functional programmer, you may recognize promises as <strong>monads</strong> which can be mapped with then() (however, they are not proper monads because they auto-flatten; i.e. you can't have a Promise<Promise<T>>).</p>
+
+<p>In fact, the single-threaded model has made Node.js a popular choice for server-side programming due to its non-blocking IO, making handling a large number of database or file-system requests very performant. However, CPU-bound (computationally intensive) tasks that are pure JavaScript will still block the main thread. To achieve real paralleling, you may need to use <strong>workers</strong>.</p>
+	 
+<p><strong>Quiz Below:</strong></p>	 
+	 <ul>
+	 <li><a href="../Asynchronous quiz.html/Asynchronous quiz.html">Asynchronous Quiz 1-3(identification)</a></li>
+	 </ul>
+	 </main>
+	<footer>
+	    <div class="copyright">
+	     <p align="center">Copyright &copy; 2022 - 2023 JAVSJAVS.com</p>
+	    </div> 
+	</footer>

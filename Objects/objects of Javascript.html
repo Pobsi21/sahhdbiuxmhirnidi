@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JavaScript Objects summary">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">	
+    
+    <title>Objects of javascript | JAVSJAVS.com</title>
+</head>
+<body>
+	    <header>
+            <!-- Top Navigation Menu -->
+                <div class="topnav">
+                    <a href="../index.html"Home</a>
+                    <a href="../contact.html/contact.html">Contact</a>
+                   <a href="../about.html/about.html">About</a>
+                     
+                </div>					   
+        </header>
+	<main>
+	    <h1>JavaScript language</h1>
+<h2>Objects</h2>
+<p>JavaScript objects can be thought of as collections of key-value pairs. As such, they are similar to:</p>
+
+<p>*Dictionaries in Python.<br>
+*Hashes in Perl and Ruby.<br>
+*Hash tables in C and C++.<br>
+*HashMaps in Java.<br>
+*Associative arrays in PHP.</p>
+<p>JavaScript objects are hashes. Unlike objects in statically typed languages, objects in JavaScript do not have fixed shapes — properties can be added, deleted, re-ordered, mutated, or dynamically queried at any time. Object keys are always <strong>strings</strong> or <strong>symbols</strong> — even array indices, which are canonically integers, are actually strings under the hood.
+
+<p>Objects are usually created using the literal syntax:</p>
+
+<p><strong>const obj = {<br>
+  name: "Carrot",<br>
+  for: "Max",<br>
+  details: {<br>
+    color: "orange",<br>
+    size: 12,<br>
+  },<br>
+};</strong></p>
+
+<p>Object properties can be <strong>accessed</strong> using dot (.) or brackets ([]). When using the dot notation, the key must be a valid <strong>identifier</strong>. Brackets, on the other hand, allow indexing the object with a dynamic key value.</p>
+
+<p><strong>// Dot notation<br>
+obj.name = "Simon";<br>
+const name = obj.name;<br>
+
+// Bracket notation<br>
+obj["name"] = "Simon";<br>
+const name = obj["name"];<br>
+
+// Can use a variable to define a key<br>
+const userName = prompt("what is your key?");<br>
+obj[userName] = prompt("what is its value?");</strong></p>
+
+<p>Property access can be chained together:</p>
+
+<p><strong>obj.details.color; // orange<br>
+obj["details"]["size"]; // 12</strong></p>
+
+<p>Objects are always references, so unless something is explicitly copying the object, mutations to an object would be visible to the outside.</p>
+
+<p><strong>const obj = {};<br>
+function doSomething(o) {<br>
+  o.x = 1;<br>
+}<br>
+doSomething(obj);<br>
+console.log(obj.x); // 1</strong></p>
+
+<p>This also means two separately created objects will never be equal (!==), because they are different references. If you hold two references of the same object, mutating one would be observable through the other.</p>
+
+<p><strong>const me = {};<br>
+const stillMe = me;<br>
+me.x = 1;<br>
+console.log(stillMe.x); // 1</strong></p>
+
+<p>This page has omitted all details about object prototypes and inheritance because you can usually achieve inheritance with <strong>classes</strong> without touching the underlying mechanism (which you may have heard to be abstruse).</p>
+	
+	<p><strong>Quiz below:</strong></p>
+    <ul>
+		<li><a href="../Object quiz.html/Object quiz.html">Object Quiz 1-3(identification)</a></li>
+	</ul>
+	</main>
+	<footer>
+	    <div class="copyright">
+	     <p align="center">Copyright &copy; 2022 - 2023 JAVSJAVS.com</p>
+	    </div> 
+	</footer>

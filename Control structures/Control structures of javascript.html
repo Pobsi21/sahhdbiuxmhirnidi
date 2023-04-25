@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JavaScript Control structures summary">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">	
+    
+    <title>Control structures of Javacript | JAVSJAVS.com</title>
+</head>
+<body>
+	    <header>
+            <!-- Top Navigation Menu -->
+                <div class="topnav">
+                    <a href="../index.html">Home</a>
+                    <a href="../contact.html/contact.html">Contact</a>
+                   <a href="../about.html/about.html">About</a>
+                    
+                </div>					   
+        </header>
+	<main>
+	    <h1>JavaScript language</h1>
+<h2>Control structures</h2>
+<p>JavaScript has a similar set of control structures to other languages in the C family. Conditional statements are supported by <strong>if and else</strong>; you can chain them together:</p>
+
+<p><strong>let name = "kittens";<br>
+if (name === "puppies") {<br>
+  name += " woof";<br>
+} else if (name === "kittens") {<br>
+  name += " meow";<br>
+} else {<br>
+  name += "!";<br>
+}<br>
+name === "kittens meow";</strong></p>
+
+<p>JavaScript doesn't have elif, and else if is really just an else branch comprised of a single if statement.</p>
+
+<p>JavaScript has <strong>while</strong> loops and <strong>do...while</strong> loops. The first is good for basic looping; the second is for loops where you wish to ensure that the body of the loop is executed at least once:</p>
+
+<p><strong>while (true) {<br>
+  // an infinite loop!<br>
+}<br>
+
+let input;<br>
+do {<br>
+  input = get_input();<br>
+} while (inputIsNotValid(input));</strong><p>
+
+<p>JavaScript's <strong>for loop</strong> is the same as that in C and Java: it lets you provide the control information for your loop on a single line.</p>
+
+<p><strong>for (let i = 0; i < 5; i++) {<br>
+  // Will execute 5 times<br>
+}</strong></p>
+
+<p>JavaScript also contains two other prominent for loops: <strong>for...of</strong>, which iterates over iterables, most notably arrays, and <strong>for...in</strong>, which visits all <strong>enumerable</strong> properties of an object.</p>
+
+<p><strong>for (const value of array) {<br>
+  // do something with value<br>
+}<br>
+
+for (const property in object) {<br>
+  // do something with object property<br>
+}</strong></p>
+
+<p>The switch statement can be used for multiple branches based on equality checking.</p>
+
+<p><strong>switch (action) {<br>
+  case "draw":<br>
+    drawIt();<br>
+    break;<br>
+  case "eat":<br>
+    eatIt();<br>
+    break;<br>
+  default:<br>
+    doNothing();<br>
+}</strong></p>
+
+<p>Similar to C, case clauses are conceptually the same as <strong>labels</strong>, so if you don't add a break statement, execution will "fall through" to the next level. However, they are not actually jump tables — any expression can be part of the case clause, not just string or number literals, and they would be evaluated one-by-one until one equals the value being matched. Comparison takes place between the two using the === operator.</p>
+
+<p>Unlike some languages like Rust, control-flow structures are statements in JavaScript, meaning you can't assign them to a variable, like const a = if (x) { 1 } else { 2 }.</p>
+
+<p>JavaScript errors are handled using the <strong>try...catch</strong> statement.</p>
+
+<p><strong>try {<br>
+  buildMySite("./website");<br>
+} catch (e) {<br>
+  console.error("Building site failed:", e);<br>
+}</strong></p>
+
+<p>Errors can be thrown using the <strong>throw</strong> statement. Many built-in operations may throw as well.</p>
+
+<p><strong>function buildMySite(siteDirectory) {<br>
+  if (!pathExists(siteDirectory)) {<br>
+    throw new Error("Site directory does not exist");<br>
+  }<br>
+}</strong></p>
+
+<p>In general, you can't tell the type of the error you just caught, because anything can be thrown from a throw statement. However, you can usually assume it's an <strong>Error</strong> instance, as is the example above. There are some subclasses of Error built-in, like <strong>TypeError</strong> and <strong>RangeError</strong>, that you can use to provide extra semantics about the error. There's no conditional catch in JavaScript — if you only want to handle one type of error, you need to catch everything, identify the type of error using <strong>instanceof</strong>, and then rethrow the other cases.
+
+<p><strong>try {<br>
+  buildMySite("./website");<br>
+} catch (e) {<br>
+  if (e instanceof RangeError) {<br>
+    console.error("Seems like a parameter is out of range:", e);<br>
+    console.log("Retrying...");<br>
+    buildMySite("./website");<br>
+  } else {<br>
+    // Don't know how to handle other error types; throw them so<br>
+    // something else up in the call stack may catch and handle it<br>
+    throw e;<br>
+  }<br>
+}</strong></p>
+
+<p>If an error is uncaught by any try...catch in the call stack, the program will exit.</p>
+
+<p><strong>Quiz below:</strong></p>
+    <ul>
+		<li><a href="../Control structures quiz.html/Control structures quiz.html">Control Structure Quiz 1-5(identification)</a></li>
+	</ul>
+	</main>
+	
+	<footer>
+	    <div class="copyright">
+	     <p align="center">Copyright &copy; 2022 - 2023 JAVSJAVS.com</p>
+	    </div> 
+	</footer>
